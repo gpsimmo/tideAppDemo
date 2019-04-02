@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+
+.mat-form-field{
+  &:first-child{
+      display: block;
+  }
+}
+
+.mat-dialog-actions{
+  justify-content: flex-end;
+}
+
+
+.fill-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+
+.mat-toolbar{
+  background:transparent;
+  padding: 0;
+
+
+  .avatar-initals{
+    background:#ddd;
+    color:white;
+    border:2px solid #eee;
+    border-radius: 50%;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+    width: 50px;
+    text-transform: uppercase;
+  }
+}
+
+

@@ -1,0 +1,37 @@
+<div class="dob-selector">
+<div>
+  <mat-label>Date of birth</mat-label>
+</div>
+
+<mat-form-field>
+  <mat-select  (valueChange)="selectorValueChanged($event,'d')"  [placeholder]="'Day'" required [formControl]="dayControl">
+    <mat-option *ngFor="let day of days" [value]="day">
+      {{day}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field>
+  <mat-select  (valueChange)="selectorValueChanged($event,'m')" [placeholder]="'Month'" required [formControl]="monthControl">
+    <mat-option *ngFor="let month of months" [value]="month.id">
+      {{month.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field>
+  <mat-select  (valueChange)="selectorValueChanged($event,'y')" [placeholder]="'Year'" required [formControl]="yearControl">
+    <mat-option *ngFor="let year of years" [value]="year">
+      {{year}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-error *ngIf="dobForm.controls['DOB'].hasError('notValid')">
+  Date selected is not valid
+</mat-error>
+
+</div>

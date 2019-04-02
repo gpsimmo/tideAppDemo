@@ -1,0 +1,45 @@
+ <mat-toolbar>
+       <span>Edit account - {{data.account.fullname}}</span>
+       <span class="fill-space"></span>
+       <span class="avatar-initals">{{initials}}</span>
+    </mat-toolbar>
+
+    <mat-dialog-content>
+
+
+        <form [formGroup]="form">
+            <mat-form-field>
+                <input
+                    matInput
+                    required
+                    placeholder="Fullname"
+                    type="text"
+                    formControlName="fullname">
+            </mat-form-field>
+            <mat-error *ngIf="form.controls['fullname'].hasError('required')">
+              *Full name is required
+            </mat-error>
+
+            <app-dob-selector [DOB]="form.get('dob').value" (dobUpdated)="updatedDobValue($event)"> </app-dob-selector>
+
+        </form>
+
+
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+          <button
+              mat-button
+              color="primary"
+              (click)="cancel()">
+              CANCEL
+          </button>
+          <button
+              mat-button
+              color="primary"
+              cdkFocusInitial
+              [disabled]="!form.valid || !updatedDOBisValid"
+              (click)="saveChanges()">
+              UPDATE
+          </button>
+        </mat-dialog-actions>
